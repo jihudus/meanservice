@@ -1,0 +1,18 @@
+DROP TABLE IF EXISTS receipt;
+DROP TABLE IF EXISTS client;
+
+CREATE TABLE client (
+  id UUID NOT NULL,
+   name VARCHAR(255) NOT NULL,
+   CONSTRAINT pk_client PRIMARY KEY (id)
+);
+
+CREATE TABLE receipt (
+  id UUID NOT NULL,
+   client_id UUID NOT NULL,
+   date date NOT NULL,
+   value DECIMAL(19, 2) NOT NULL,
+   CONSTRAINT pk_receipt PRIMARY KEY (id)
+);
+
+ALTER TABLE receipt ADD CONSTRAINT FK_RECEIPT_ON_CLIENT FOREIGN KEY (client_id) REFERENCES client (id);
