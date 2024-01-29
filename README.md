@@ -1,12 +1,13 @@
-#ReadMe
-###This is a demo app that calculates mean value of db entities within given time interval.
+# ReadMe
 
-##To start the application:
+This is a demo app that calculates mean value of db entities within given time interval.
+
+## To start the application:
 1. CLONE repo: `git clone https://github.com/jihudus/meanservice.git`
 2. Go into docker directory: `cd meanservice/docker`
 3. Run docker compose: `docker compose up -d --build meanservice`
 
-##To send a request:
+## To send a request:
 
 Swagger ui page is [available](http://localhost:8800/mean/swagger.html)
 
@@ -23,7 +24,7 @@ Parameters needed:
 + If date has incorrect format: status `400`
 + If tillDate is before fromDate: status `400`
 
-##To run the tests
+## To run the tests
 1. Go to main app directory
 2. run command `./mvnw test`
 There are 4 unit tests to examine controller and service methods.
