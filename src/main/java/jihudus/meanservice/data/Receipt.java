@@ -14,7 +14,7 @@ public class Receipt {
     @Column(name = "id", nullable = false)
     private UUID id;
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 
@@ -56,4 +56,13 @@ public class Receipt {
         this.id = id;
     }
 
+    public Receipt() {
+    }
+
+    public Receipt(UUID id, Client client, LocalDate date, BigDecimal value) {
+        this.id = id;
+        this.client = client;
+        this.date = date;
+        this.value = value;
+    }
 }

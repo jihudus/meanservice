@@ -34,4 +34,11 @@ public class Client {
         this.id = id;
     }
 
+    public Client() {
+    }
+
+    public Client(UUID id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

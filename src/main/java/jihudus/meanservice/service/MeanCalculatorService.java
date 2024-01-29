@@ -15,6 +15,7 @@ public class MeanCalculatorService {
 
     private final ReceiptRepository receiptRepository;
 
+    // Result decimal precision
     private final int scale = 2;
 
     public MeanCalculatorService(ReceiptRepository receiptRepository) {
@@ -27,6 +28,8 @@ public class MeanCalculatorService {
                 .map(Receipt::getValue)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
         BigDecimal size = new BigDecimal(receiptsWithinInterval.size());
-        return valueSum.divide(size, scale, RoundingMode.HALF_UP);
+        return size.equals(BigDecimal.ZERO) ?
+                    BigDecimal.ZERO :
+                    valueSum.divide(size, scale, RoundingMode.HALF_UP);
     }
 }

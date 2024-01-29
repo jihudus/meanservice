@@ -1,0 +1,35 @@
+version: "3.3"
+
+services:
+    postgres:
+        container_name: postgres
+        image: postgres:14.5
+        environment:
+            POSTGRES_DB: postgres
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: password
+        ports:
+            - 5432:5432
+        networks:
+            - inner
+
+    meanservice:
+        image: jihudus/meanservice
+        build:
+            context: ..
+            dockerfile: ./docker/Dockerfile
+        container_name: meanservice
+        ports:
+            - 8800:8800/tcp
+        environment:
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
+            - SPRING_DATASOURCE_USERNAME=postgres
+            - SPRING_DATASOURCE_PASSWORD=password
+        depends_on:
+            - postgres
+        networks:
+            - inner
+
+networks:
+    inner:
+        driver: bridge

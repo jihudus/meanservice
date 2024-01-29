@@ -1,0 +1,15 @@
+server:
+  port: 8800
+  servlet:
+    context-path: /mean
+springdoc:
+  api-docs:
+    path: /docs
+  swagger-ui:
+    path: /swagger.html
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    open-in-view: false
+    database: POSTGRESQL
