@@ -13,7 +13,7 @@ Swagger ui page is [available](http://localhost:8800/mean/swagger.html)
 
 For test purposes some data added into db, you can check it in [V2__ADD_TEST_DATA.sql](src/main/resources/db/migration/V2__ADD_TEST_DATA.sql)
 
-Address to request: **http://localhost:8800/mean/_{uuid}_**
+Address to request: ** http://localhost:8800/mean/_{uuid}_ **
 Here `uuid` relates to `client.id` or `receipt.client_id` field on db.
 
 Parameters needed: 
